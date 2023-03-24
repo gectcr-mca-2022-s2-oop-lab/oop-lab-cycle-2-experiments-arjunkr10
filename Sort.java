@@ -1,24 +1,28 @@
 package cycle2;
-import java.util.*;
+
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Sort {
-
-	public static void main(String[] args) {
-		Scanner s=new Scanner(System.in);
-		String [] array1= new String[5]; 
-		System.out.println("Enter elements:");
-		for(int i=0;i<5;i++) {
-			array1[i]=s.nextLine();
+	public static void main(String args[]) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("enter size of array:");
+		String[] arr = new String[sc.nextInt()];
+		System.out.println("enter string array elements:");
+		
+		for (int i = 0; i < arr.length; i++) {
+			arr[i] = sc.next();
 		}
-		System.out.println("Elements are:");
-		for(int i=0;i<5;i++) {
-			System.out.print(array1[i]+"\t");
+		int size = arr.length;
+		for (int i = 0; i < size - 1; i++) {
+			for (int j = i + 1; j < arr.length; j++) {
+				if (arr[i].compareTo(arr[j]) > 0) {
+					String temp = arr[i];
+					arr[i] = arr[j];
+					arr[j] = temp;
+				}
+			}
 		}
-		// TODO Auto-generated method stub
-		Arrays.sort(array1);
-		System.out.println("\nSorted array:");
-		System.out.println(Arrays.toString(array1));
+		System.out.println(Arrays.toString(arr));
 	}
-
 }
